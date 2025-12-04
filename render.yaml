@@ -2,6 +2,23 @@ services:
   - type: web
     name: qr-telegram-api
     env: python
-    pythonVersion: 3.11
-    buildCommand: pip install -r requirements.txt
-    startCommand: gunicorn main:app --bind 0.0.0.0:$PORT
+    region: singapore  # or your preferred region
+    plan: free
+    branch: main
+    buildCommand: |
+      python3.11 -m venv .venv
+      source .venv/bin/activate
+      pip install --upgrade pip
+      pip install -r requirements.txt
+    startCommand: |
+      source .venv/bin/activate
+      gunicorn main:app --bind 0.0.0.0:$PORT
+```
+
+---
+
+## Alternative: Use runtime.txt
+
+Create a new file called `runtime.txt` in your project root:
+```
+python-3.11.9
