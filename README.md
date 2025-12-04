@@ -1,0 +1,2 @@
+# QrScanTele
+For secutiry
