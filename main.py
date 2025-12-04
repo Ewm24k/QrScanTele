@@ -5,6 +5,15 @@ from telegram.ext import Updater, MessageHandler, Filters
 from pyzbar.pyzbar import decode
 from PIL import Image
 import os
+import sys
+import types
+
+# --------- Patch imghdr for Python 3.13 ---------
+try:
+    import imghdr
+except ModuleNotFoundError:
+    imghdr = types.ModuleType("imghdr")
+    sys.modules["imghdr"] = imghdr
 
 # --------- Flask API ---------
 app = Flask(__name__)
@@ -70,5 +79,5 @@ bot_thread.start()
 
 # --------- Run Flask ---------
 if __name__ == "__main__":
-    port = int(os.environ.get("PORT", 10000))  # <-- only change
+    port = int(os.environ.get("PORT", 10000))
     app.run(host="0.0.0.0", port=port)
