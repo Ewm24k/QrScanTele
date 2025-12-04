@@ -128,6 +128,9 @@ def start_bot():
         print(f"❌ Bot error: {e}")
 
 # --------- Start bot in background thread ---------
+print("🚀 Flask app initialized")
+print("🤖 Starting Telegram bot thread...")
+
 bot_thread = threading.Thread(target=start_bot, daemon=True)
 bot_thread.start()
 
