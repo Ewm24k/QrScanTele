@@ -28,7 +28,7 @@ def scan():
 
 # --------- Telegram Bot ---------
 TELEGRAM_TOKEN = "8585326191:AAGWahXKfYW_FvyLtg5g8xDU_KdkHkX8QW0"
-API_URL = "https://qrscantele.onrender.com/scan"
+API_URL = "https://QrScanTele-2.onrender.com/scan"
 
 def extract_qr(image_path):
     img = Image.open(image_path)
@@ -70,4 +70,5 @@ bot_thread.start()
 
 # --------- Run Flask ---------
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=10000)
+    port = int(os.environ.get("PORT", 10000))  # <-- only change
+    app.run(host="0.0.0.0", port=port)
