@@ -27,7 +27,7 @@ def scan():
     })
 
 # --------- Telegram Bot ---------
-TELEGRAM_TOKEN = "YOUR_TELEGRAM_BOT_TOKEN"
+TELEGRAM_TOKEN = "8585326191:AAGWahXKfYW_FvyLtg5g8xDU_KdkHkX8QW0"
 API_URL = "https://qrscantele.onrender.com/scan"
 
 def extract_qr(image_path):
