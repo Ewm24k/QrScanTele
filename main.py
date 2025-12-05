@@ -153,30 +153,3 @@ if __name__ == "__main__":
     port = int(os.environ.get("PORT", 10000))
     print(f"Starting Flask server on port {port}", flush=True)
     app.run(host="0.0.0.0", port=port)
-```
-
-## What I Fixed:
-
-✅ Removed emojis from **print statements** (they were causing syntax errors)  
-✅ Kept emojis in **user-facing messages** (inside strings sent to Telegram)  
-✅ Added `flush=True` to all print statements for immediate logging  
-✅ Added `import time` at the top  
-✅ All syntax is now valid Python  
-
-## Expected Logs After Deploy:
-```
-Flask app initialized
-Starting Telegram bot thread...
-Initializing bot...
-Using token: 8585326191...
-Telegram bot started successfully!
-Bot is now listening for photos...
-Bot thread is running
-```
-
-When you send a photo:
-```
-Received photo from user 123456789
-Downloading photo...
-QR Code detected: https://example.com
-Response sent to user
